@@ -21,7 +21,7 @@ set -o pipefail
 havecmd -v rev || exit $?
 havecmd -v awk || exit $?
 havecmd -v sed || exit $?
-havecmd -V 'Install from https://github.com/seanbreckenridge/chomp' 'chomp' || exit $?
+havecmd -V 'Install from https://github.com/purarue/chomp' 'chomp' || exit $?
 havecmd -V 'Install with "pip install termgraph"' 'termgraph' || exit $?
 
 # this uses '|@|' as a special marker to replace commas with

@@ -7,7 +7,7 @@ from urllib.parse import urlparse
 
 import requests
 import click
-from seanb import clipboard
+from pura import clipboard
 
 
 def url_filename(url: str) -> str:

@@ -10,7 +10,7 @@ cd "${THIS_DIR}/" || exit $?
 
 declare -a DATA=(
 	'evry'
-	'--git https://github.com/seanbreckenridge/wait-for-internet'
+	'--git https://github.com/purarue/wait-for-internet'
 )
 
 install_cargo_package() {

@@ -11,7 +11,7 @@ from collections import defaultdict
 import click
 from atomicwrites import atomic_write  # type: ignore[import]
 
-from seanb.jsonfast import loads, dumps
+from pura.jsonfast import loads, dumps
 
 
 PrinterType = Literal["stderr", "table", "json"]

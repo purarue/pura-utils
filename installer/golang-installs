@@ -28,9 +28,9 @@ install_golang_package() {
 }
 
 declare -a DATA=(
-	'newest github.com/seanbreckenridge/newest'
-	'chomp github.com/seanbreckenridge/chomp'
-	'on_machine github.com/seanbreckenridge/on_machine/cmd/on_machine'
+	'newest github.com/purarue/newest'
+	'chomp github.com/purarue/chomp'
+	'on_machine github.com/purarue/on_machine/cmd/on_machine'
 )
 
 for data in "${DATA[@]}"; do

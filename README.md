@@ -1,4 +1,4 @@
-Scripts extracted from my [dotfiles](https://github.com/seanbreckenridge/dotfiles), see [index](#script-index)
+Scripts extracted from my [dotfiles](https://github.com/purarue/dotfiles), see [index](#script-index)
 
 This includes:
 
@@ -38,8 +38,8 @@ To check for dependencies/path issues, run `make`
 To install, run `make install`:
 
 ```bash
-git clone https://github.com/seanbreckenridge/seanb-utils
-cd ./seanb-utils
+git clone https://github.com/purarue/pura-utils
+cd ./pura-utils
 make  # check for dependencies
 make install
 ```
@@ -47,7 +47,7 @@ make install
 Or use [`bpkg`](https://github.com/bpkg/bpkg) to automate the manual `git clone`/`cd`/`make`:
 
 ```
-bpkg install -g seanbreckenridge/seanb-utils
+bpkg install -g purarue/pura-utils
 ```
 
 To setup `go` to build packages, add something like this to your `.zshrc`/`.bashrc`:
@@ -78,9 +78,9 @@ Requires `python 3.8+`/`golang` to install:
 `make install` installs:
 
 - a few `go` CLI tools - (See <https://go.dev/doc/install> for install instructions)
-  - [`newest`](https://github.com/seanbreckenridge/newest) - print most recently modified file in directory
-  - [`chomp`](https://github.com/seanbreckenridge/chomp) - remove whitespace/empty lines from command output
-  - [`on_machine`](https://github.com/seanbreckenridge/on_machine) - detect what operating system/machine you're currently on
+  - [`newest`](https://github.com/purarue/newest) - print most recently modified file in directory
+  - [`chomp`](https://github.com/purarue/chomp) - remove whitespace/empty lines from command output
+  - [`on_machine`](https://github.com/purarue/on_machine) - detect what operating system/machine you're currently on
 - The `./python-src` package, which includes helper functions, see [python-src/README.md](./python-src/README.md). Also installs required python libraries for any python scripts here
 
 ... and shellscripts:
@@ -104,7 +104,7 @@ Requires `python 3.8+`/`golang` to install:
 - [`to-png`](./shellscripts/to-png)/[`to-jpg`](./shellscripts/to-jpg) - converts an image to a png/jpg
 - [`img-download`](./shellscripts/img-download) - downloads an image from your clipboard to your tmpdir, moves it so that the extension is valid
 - [`shebang`](./shellscripts/shebang) - creates a script with the given shebang. If a known language, adds a basic template
-- [`html-head`](./shellscripts/html-head): a script to generate `<head>` tags for generated HTML, I often use this like: `pandoc README.md | html-head -a css-dark-mode -a css-pre-wrap | remsync-html-from-stdin` to convert some local markdown file to a basic dark-mode webpage and publish it onto my website with [`remsync`](https://github.com/seanbreckenridge/vps/blob/master/remsync)
+- [`html-head`](./shellscripts/html-head): a script to generate `<head>` tags for generated HTML, I often use this like: `pandoc README.md | html-head -a css-dark-mode -a css-pre-wrap | remsync-html-from-stdin` to convert some local markdown file to a basic dark-mode webpage and publish it onto my website with [`remsync`](https://github.com/purarue/vps/blob/master/remsync)
 
 ##### Data Wrangling
 
@@ -123,7 +123,7 @@ Requires `python 3.8+`/`golang` to install:
 
 ##### Cross Platform Helpers
 
-These use [`on_machine`](https://github.com/seanbreckenridge/on_machine) to run different commands based on what operating system you're on
+These use [`on_machine`](https://github.com/purarue/on_machine) to run different commands based on what operating system you're on
 
 - [`openurl`](./shellscripts/openurl)/[`openurls`](./shellscripts/openurls) - URL opener
 - [`clipcopy`](./shellscripts/clipcopy)/[`clippaste`](./shellscripts/clippaste) - save to/read from clipboard
@@ -145,7 +145,7 @@ These use [`on_machine`](https://github.com/seanbreckenridge/on_machine) to run 
 
 - [`image-dimensions`](./shellscripts/image-dimensions) - prints the width/height for images passed as arguments
 - [`gifme`](./shellscripts/gifme) - Creates a gif from a (section of a) video file. Lets you specify start/end times and an fps for the gif to run at
-- [`list-movies`](./shellscripts/list-movies)/[`list-music`](./shellscripts/list-music) - lists any music/movies in the current directory recursively. any additional args are passed onto [`fd`](https://github.com/sharkdp/fd), e.g, with [`mlength`](https://github.com/seanbreckenridge/mlength)
+- [`list-movies`](./shellscripts/list-movies)/[`list-music`](./shellscripts/list-music) - lists any music/movies in the current directory recursively. any additional args are passed onto [`fd`](https://github.com/sharkdp/fd), e.g, with [`mlength`](https://github.com/purarue/mlength)
   - `list-music -X mlength -o sum` (find length of an album in current directory)
   - `list-movies -X mlength -d path -o min` (find shortest movie in current directory)
   - `list-movies -X mlength -d all | sort -n` (sort results by length)

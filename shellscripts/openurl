@@ -49,7 +49,7 @@ export BROWSER="firefox-developer-edition:google-chrome"\n' >&2
 	# remove trailing ¬ from the URL (used in my editor to denote end of line)
 	URL="${URL%¬}"
 
-	# https://github.com/seanbreckenridge/ttt
+	# https://github.com/purarue/ttt
 	command -v tttlog >/dev/null 2>&1 && tttlog "openurl $URL"
 	# print the URL back to STDOUT
 	printf '%s\n' "$URL"

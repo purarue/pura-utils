@@ -1,4 +1,4 @@
 #!/bin/sh
 havecmd -V 'This is typically installed as part of imagemagick' convert || exit $?
 FILEPATH=${1:?Must provide image to convert}
-exec magick convert "${FILEPATH}" -rotate 90 "${FILEPATH}"
+exec magick "${FILEPATH}" -rotate 90 "${FILEPATH}"

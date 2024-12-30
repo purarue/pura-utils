@@ -6,7 +6,7 @@ from pathlib import Path
 import contextlib
 
 import click
-from bs4 import BeautifulSoup, Tag
+from bs4 import BeautifulSoup, Doctype, Tag
 
 user_has_lxml = False
 try:
@@ -30,7 +30,7 @@ except Exception:
     "_viewport",
     help="add default viewport",
     show_default=True,
-    default="width=device-width",
+    default="width=device-width, initial-scale=1.0, user-scalable=yes",
 )
 @click.option(
     "-a",
@@ -90,8 +90,12 @@ def main(
     meta_tags = head.find_all("meta")
     if not any(("charset" in getattr(tag, "attrs", {}) for tag in meta_tags)):
         head.append(soup.new_tag("meta", attrs={"charset": _charset}))
-    if not any(("viewport" in getattr(tag, "attrs", {}) for tag in meta_tags)):
-        head.append(soup.new_tag("meta", attrs={"viewport": _viewport}))
+    if not any(
+        ("viewport" == getattr(tag, "attrs", {}).get("name") for tag in meta_tags)
+    ):
+        head.append(
+            soup.new_tag("meta", attrs={"name": "viewport", "content": _viewport})
+        )
     if "css-pre-wrap" in add:
         prewrap = soup.new_tag("style")
         prewrap.string = "pre{white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space:-o-pre-wrap;word-wrap:break-word}"
@@ -100,6 +104,10 @@ def main(
         darkmode = soup.new_tag("style")
         darkmode.string = "body{background-color:#1b1b1b;color:#e7e8eb}a{color:#3387cc}"
         head.append(darkmode)
+
+    if len([a for a in soup.children if isinstance(a, Doctype)]) == 0:
+        click.echo("<!DOCTYPE html>")
+
     click.echo(str(soup).strip())
 
 

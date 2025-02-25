@@ -40,6 +40,12 @@ except Exception:
     help="flags to add additional features",
     default=(),
 )
+@click.option(
+    "--raw-css",
+    type=str,
+    help="add raw CSS",
+    default=None,
+)
 @click.argument(
     "INPUT_FILE",
     type=click.Path(exists=True, allow_dash=True, path_type=Path),
@@ -47,7 +53,11 @@ except Exception:
     required=False,
 )
 def main(
-    input_file: Optional[Path], _charset: bool, _viewport: bool, add: Sequence[str]
+    input_file: Optional[Path],
+    _charset: bool,
+    _viewport: bool,
+    raw_css: Optional[str],
+    add: Sequence[str],
 ) -> None:
     """
     A script to create a sensible <head> element for HTML pages.
@@ -104,6 +114,11 @@ def main(
         darkmode = soup.new_tag("style")
         darkmode.string = "body{background-color:#1b1b1b;color:#e7e8eb}a{color:#3387cc}"
         head.append(darkmode)
+
+    if raw_css:
+        new_styles = soup.new_tag("style")
+        new_styles.string = raw_css
+        head.append(new_styles)
 
     if len([a for a in soup.children if isinstance(a, Doctype)]) == 0:
         click.echo("<!DOCTYPE html>")

@@ -99,13 +99,13 @@ def main(
     assert head is not None
     meta_tags = head.find_all("meta")
     if not any(("charset" in getattr(tag, "attrs", {}) for tag in meta_tags)):
-        head.append(soup.new_tag("meta", attrs={"charset": _charset}))
+        cs = soup.new_tag("meta", attrs={"charset": _charset})
+        head.append(cs)
     if not any(
         ("viewport" == getattr(tag, "attrs", {}).get("name") for tag in meta_tags)
     ):
-        head.append(
-            soup.new_tag("meta", attrs={"name": "viewport", "content": _viewport})
-        )
+        vp = soup.new_tag("meta", attrs={"name": "viewport", "content": _viewport})
+        head.append(vp)
     if "css-pre-wrap" in add:
         prewrap = soup.new_tag("style")
         prewrap.string = "pre{white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space:-o-pre-wrap;word-wrap:break-word}"

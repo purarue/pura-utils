@@ -54,8 +54,8 @@ except Exception:
 )
 def main(
     input_file: Optional[Path],
-    _charset: bool,
-    _viewport: bool,
+    _charset: str,
+    _viewport: str,
     raw_css: Optional[str],
     add: Sequence[str],
 ) -> None:
@@ -99,13 +99,13 @@ def main(
     assert head is not None
     meta_tags = head.find_all("meta")
     if not any(("charset" in getattr(tag, "attrs", {}) for tag in meta_tags)):
-        cs = soup.new_tag("meta", attrs={"charset": _charset})
-        head.append(cs)
+        head.append(soup.new_tag("meta", attrs={"charset": _charset}))
     if not any(
         ("viewport" == getattr(tag, "attrs", {}).get("name") for tag in meta_tags)
     ):
-        vp = soup.new_tag("meta", attrs={"name": "viewport", "content": _viewport})
-        head.append(vp)
+        head.append(
+            soup.new_tag("meta", attrs={"name": "viewport", "content": _viewport})
+        )
     if "css-pre-wrap" in add:
         prewrap = soup.new_tag("style")
         prewrap.string = "pre{white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space:-o-pre-wrap;word-wrap:break-word}"

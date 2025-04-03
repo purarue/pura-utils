@@ -27,7 +27,7 @@ STDIN="$(cat)"
 
 case "${ON_OS:-$(on_machine)}" in
 linux*)
-	if havecmd wl-copy; then
+	if [[ -n "$WAYLAND_DISPLAY" ]] && havecmd wl-copy; then
 		printf '%s' "${STDIN}" | wl-copy
 	else
 		printf '%s' "${STDIN}" | xclip -in -selection clipboard

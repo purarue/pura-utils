@@ -9,11 +9,10 @@ fi
 
 case "${ON_OS:-$(on_machine)}" in
 linux*)
-	if havecmd wl-paste; then
+	if [[ -n "$WAYLAND_DISPLAY" ]] && havecmd wl-paste; then
 		exec wl-paste
-	else
-		exec xclip -out -selection clipboard
 	fi
+	exec xclip -out -selection clipboard
 	;;
 mac*)
 	exec pbpaste

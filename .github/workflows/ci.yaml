@@ -37,4 +37,4 @@ jobs:
           mypy --install-types --non-interactive 'shellscripts/unique-ignore-case'
       - name: Run flake8
         run: |
-          flake8 --config ./python-src/setup.cfg ./python-src/pura
+          flake8 --config ./python-src/.flake8 ./python-src/pura

@@ -1,0 +1,53 @@
+[project]
+name = "pura"
+version = "0.1.0"
+description = "core utilities/functions"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.9"
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+]
+dependencies = [
+  "atomicwrites",
+  "beautifulsoup4",
+  "click",
+  "requests",
+  "tabulate",
+  "toml",
+]
+[[project.authors]]
+name = "purarue"
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project.urls]
+Homepage = "https://github.com/purarue/pura-utils"
+
+[tool.mypy]
+pretty = "True"
+disallow_any_generics = "False"
+show_error_context = "True"
+show_error_codes = "True"
+disallow_subclassing_any = "True"
+disallow_incomplete_defs = "True"
+no_implicit_optional = "True"
+warn_redundant_casts = "True"
+warn_return_any = "True"
+namespace_packages = "True"
+warn_unreachable = "True"
+
+[tool.pytest.ini_options]
+addopts = []
+
+[tool.setuptools.packages.find]
+include = []
+exclude = []

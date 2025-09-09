@@ -5,7 +5,8 @@ import sys
 import tempfile
 import contextlib
 from pathlib import Path
-from typing import Sequence, Any, List, Tuple, Dict, Literal, get_args
+from typing import Any, Literal, get_args
+from collections.abc import Sequence
 from collections import defaultdict
 
 import click
@@ -20,9 +21,9 @@ PrinterType = Literal["stderr", "table", "json"]
 class Printer:
     def __init__(self, printer_type: PrinterType) -> None:
         self.printer_type: PrinterType = printer_type
-        self.messages: List[Tuple[str, str]] = []
+        self.messages: list[tuple[str, str]] = []
 
-    def print(self, msg: Tuple[str, str]) -> None:
+    def print(self, msg: tuple[str, str]) -> None:
         if self.printer_type == "stderr":
             click.echo(f"json-compress: {msg[0]} {msg[1]}", err=True)
         elif self.printer_type == "json":
@@ -71,7 +72,7 @@ def main(check: bool, output_fmt: PrinterType, path: Sequence[Path]) -> None:
     data: Any
     printer = Printer(output_fmt)
     print_sizes: bool = "-" not in {str(p) for p in path}
-    sizes: Dict[Path, List[int]] = defaultdict(list)
+    sizes: dict[Path, list[int]] = defaultdict(list)
     for p in path:
         if str(p) == "-":
             data = sys.stdin.read()

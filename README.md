@@ -118,6 +118,7 @@ Requires `python 3.8+`/`golang` to install:
 - [`unique-ignore-case`](./shellscripts/unique-ignore-case) - `unique`, but ignores uppercase/lowercase
 - [`tally`](./shellscripts/tally) - shorthand for `sort | uniq -c | sort -n`
 - [`group-and-termgraph`](./shellscripts/group-and-termgraph) - takes lines of data and groups/graphs it using [termgraph](https://github.com/mkaz/termgraph). Sort of like a fancy `sort | uniq -c | sort -n`
+
 ##### Cross Platform Helpers
 
 These use [`on_machine`](https://github.com/purarue/on_machine) to run different commands based on what operating system you're on

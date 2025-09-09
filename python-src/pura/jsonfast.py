@@ -4,7 +4,7 @@ dumps can return compressed (minified) JSON (set minified=True)
 """
 
 import json
-from typing import Any, Optional
+from typing import Any
 
 
 def loads(jsonstr: str, **kwargs: Any) -> Any:
@@ -18,7 +18,7 @@ def loads(jsonstr: str, **kwargs: Any) -> Any:
 
 
 def dumps(
-    obj: Any, minified: bool = False, default: Optional[Any] = None, **kwargs: Any
+    obj: Any, minified: bool = False, default: Any | None = None, **kwargs: Any
 ) -> str:
     try:
         import orjson

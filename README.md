@@ -71,7 +71,7 @@ On [`termux`](https://termux.dev/en/), you need to install the [`termux-api`](ht
 
 ## Contents
 
-Requires `python 3.8+`/`golang` to install:
+Requires `python 3.11+`/`golang` to install:
 
 ### Script Index
 

@@ -1,5 +1,5 @@
 [project]
-name = "pura"
+name = "pura_utils"
 version = "0.1.0"
 description = "core utilities/functions"
 readme = "README.md"
